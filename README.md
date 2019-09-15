@@ -15,7 +15,7 @@
 
 <p align="center">
 <img src="Short_version.gif" >
-<\p>
+</p>
   
 Left : 5 times amplified from MD simulation, Right : 15 times amplified UA 60 in CGMD
 
