@@ -8,7 +8,6 @@ project_directory from Aug. 2016 to Sep. 2019
 #### Simulation model
 - SWNT (5,5) at 300 K
 - one end fixed as 0 K
-- Total time duration : 0.25 ns
 - Results in animated GIF: nonlinear motion calculated by CGMD and MD simulation
 - CGMD simulation shares the initial displacement and velocity only with that of MD simulation
 
