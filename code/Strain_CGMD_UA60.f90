@@ -1,3 +1,5 @@
+!Module info. from home-made code writtne by Prof. Shiomi and Prof. Maruyama
+
 module consts
   integer,parameter :: maxc=10000, numax=500
   real(8),parameter :: an=6.02217d23,                 &
@@ -17,8 +19,8 @@ module root
   use consts
   integer n_root, Ntot
   integer flag(maxc), str_n(maxc)
-  real mass, dt, dl0, V_growth
-  real root_loc(maxc,2),PE 
+  real mass, dt, dl0
+  real root_loc(maxc,2),PE, KE 
   real Temp, Temp_r, Nl, strain(maxc),angle(maxc),strain1(maxc)
 end module root
 
@@ -27,9 +29,9 @@ module var
   integer Ntot,natom, time
   real*8 ru(3,maxc,numax), dr(3,maxc,numax), dv(3,maxc,numax), &
        & r(3,maxc,numax), f(3,maxc,numax), v(3,maxc,numax),    &
-       & Torq(maxc,numax), f0(3,maxc,numax), &
+       & f0(3,maxc,numax), &
        & dr11(numax),dr22(numax),dr33(numax)
-  real(8) k_sp, k_ang, loca,k_sp0, para2,delt, para1 
+  real(8) k_sp, k_ang, loca,k_sp0, delt, para1, para2 
 end module var
 
 
@@ -40,8 +42,6 @@ program CGMD
   use var
 
   implicit integer (A-Z)
-  
-  real vx0,vy0,vz0,dx0,dy0,dz0,KE,a1,a2,a3
 
   open(111,file='../input/disp_10.avg',status='old')
   open(222,file='../input/velo_10.avg',status='old')
@@ -57,28 +57,36 @@ program CGMD
   open(22,file='../result/out.dat')
 
 
-!! info of the beads-spring 
+
+!! info of the beads-spring - total number of beads
   read(12,*) natom
-  
+
+
+
+!! Initial location of the string, in case there are many of them
+!! n_root = # of string in total 
   do i=1,n_root
 	read(12,*) root_loc(i,1), root_loc(i,2)
         str_n(i)=0
   end do
 
 
+
 !! info of a node and computation condition
-  read(11,*) Nt
-  read(11,*) mass
-  read(11,*) dt
-  read(11,*) dl0
-  read(11,*) V_growth
+  read(11,*) Nt    ! Total number of iteration 
+  read(11,*) mass  ! mass of a node
+  read(11,*) dt    ! time step 
+  read(11,*) dl0   ! distance btw nodes
+ 
 
 
-!! integration constant for Verlet 
+
+!! integration constant for Velocity-Verlet 
   delt=9.644*dt/mass*1000/2     
 
 
-!! Spring constants 
+
+!! Spring constants and cross correlation diffusion parameter  
   k_sp0=220
   k_ang=2610/dl0
 
@@ -88,6 +96,7 @@ program CGMD
 
 close(11)
 close(12)
+
 
 
 
@@ -103,6 +112,7 @@ close(12)
   end do
 
 
+!! make a bead composed of 60 carbon atom, i.e. a beads with 3 unit cell  
   do j=2,12
 	do jj=1,6
 		read(111,*) a1,a2,a3
@@ -115,7 +125,7 @@ close(12)
 		v(3,1,j)=v(3,1,j)+a3/6
 	end do 
 
-	r(2,1,j)=r(2,1,j)+36.47448+dl0
+	r(2,1,j)=r(2,1,j)+36.47448+dl0   ! adjusting initial height from given in MD simulation results
 	angle(j)=0
 	strain(j)=0
   end do 
@@ -130,15 +140,19 @@ close(12)
   close(222)
 
 
+! Inital run for calculating force 
   call calcul_F
 
 
+!! Nt - total number of iteration for CGMD simulation 
   do t=1,Nt
 
   	time=t
 
   	call integration
 
+
+!! OUTPUT printing 
 	if (mod(time,50)==0) then
 		write(32,*) r(1,1,11)
 		write(33,*) r(3,1,11)
@@ -199,6 +213,8 @@ subroutine calcul_F
   integer i,j
 
   PE=0
+
+!
   do i=1,n_root
 	do j=1,str_n(i)
  		f(1,i,j)=0
@@ -213,11 +229,11 @@ subroutine calcul_F
 
 		dl_=sqrt(dx*dx+dy*dy+dz*dz)
 
-		test=(dy-dl0+(dx**2+dz**2)/2/dl0)/dl0
+		test=(dy-dl0+(dx**2+dz**2)/2/dl0)/dl0   ! Calculating Green-Lagrangian strain
 		strain(j)=test
  		k_sp=k_sp0*2
 
- 		PE=PE+test*test*k_sp*0.5*dl0
+ 		PE=PE+test*test*k_sp*0.5*dl0	! adding PE 
  
 		f(1,i,j)=f(1,i,j)+k_sp*dx/dl_*test
 		f(2,i,j)=f(2,i,j)+k_sp*dy/dl_*test
@@ -262,13 +278,16 @@ subroutine calcul_F
 		end if
 
 
-		test=(-dy1-dl0+(dx1**2+dz1**2)/2/dl0)/dl0
+		! Strain for two neighbors which are composing an angle 
+		test=(-dy1-dl0+(dx1**2+dz1**2)/2/dl0)/dl0	
 		test1=(dy2-dl0+(dx2**2+dz2**2)/2/dl0)/dl0
 
 		sinB=sqrt(1-cosB*cosB)
 		ang_B=Pi-acos(cosB)
 		T=-k_ang*ang_B
 
+
+		! cross-correlation diffusion process 
 		add_length=-((strain(j)-test)+(strain1(j)-test1))*para1*(-1)**(j+time)
 
 		add_angle=(angle(j)-ang_B)*para2*(-1)**(j+time)
