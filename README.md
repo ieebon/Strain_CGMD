@@ -13,8 +13,11 @@
 - Results in animated GIF: nonlinear motion calculated by CGMD and MD simulation
 - CGMD simulation shares the initial displacement and velocity only with that of MD simulation
 
-![SegmentLocal](Short_version.gif "segment")*Left : 5 times amplified from MD simulation, Right : 15 times amplified UA 60 in CGMD*
-
+<p align="center">
+<img src="Short_version.gif">
+<\p>
+  
+Left : 5 times amplified from MD simulation, Right : 15 times amplified UA 60 in CGMD
 
 
 
