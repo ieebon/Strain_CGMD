@@ -24,9 +24,10 @@ Left : 5 times amplified from MD simulation, Right : 15 times amplified UA 60 in
 #### input data for this model is in https://drive.google.com/open?id=1a17F_jgNmaAdU6IK9HGAQ6gchxtW5JFl
 
 
+<br>
 
+<hr>
 
- 
 #### Poster session
 - H. Koh, Y. Yoshimoto, S. Chiashi, J. Shiomi and S. Maruyama, Free thermal vibration of SWNT and its modeling in CGMD simulation, Sendai, Japan, FNTG, September, 2018.
 - H. Koh, Y. Yoshimoto, S. Chiashi, J. Shiomi and S. Maruyama, Free thermal vibration of SWNT and its modeling in CGMD simulation, Ulsan, South Korea, Soft matter summer school from KIAS, June, 2019.
