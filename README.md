@@ -1,6 +1,6 @@
 # Strain_CGMD
 - project_directory from Aug. 2016 to Sep. 2019
-- collaborated with Prof. Chiashi, Prof. Junichiro Shiomi and Prof. Shigeo Maruyama @ The Univ. of Tokyo
+- collaborated with Prof. Shohei Chiashi, Prof. Junichiro Shiomi and Prof. Shigeo Maruyama @ The Univ. of Tokyo
 
 
 ## Code work for Strain CGMD
