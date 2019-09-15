@@ -14,7 +14,7 @@
 - CGMD simulation shares the initial displacement and velocity only with that of MD simulation
 
 <p align="center">
-<img src="Short_version.gif">
+<img src="Short_version.gif" >
 <\p>
   
 Left : 5 times amplified from MD simulation, Right : 15 times amplified UA 60 in CGMD
