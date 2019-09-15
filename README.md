@@ -15,3 +15,4 @@ project_directory for Aug. 2016
 #### - quantitative comparison with simple harmonic spring... <- next paper... 
 
 
+![ChessUrl](https://upload.wikimedia.org/wikipedia/commons/7/71/ChessPawnSpecialMoves.gif "chess")
