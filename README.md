@@ -18,6 +18,8 @@
  Left : 5 times amplified from MD simulation, Right : 15 times amplified UA 60 in CGMD
 
 
+
+
 #### input data for this model is in https://drive.google.com/open?id=1a17F_jgNmaAdU6IK9HGAQ6gchxtW5JFl
 
 
