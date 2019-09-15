@@ -1,5 +1,17 @@
 # Strain_CGMD
-project_directory from Aug. 2016 to Sep. 2019
+- project_directory from Aug. 2016 to Sep. 2019
+- collaborated with Prof. Chiashi, Prof. Junichiro Shiomi and Prof. Shigeo Maruyama @ The Univ. of Tokyo
+
+### Presented in public via 
+#### Poster session
+- H. Koh, Y. Yoshimoto, S. Chiashi, J. Shiomi and S. Maruyama, Free thermal vibration of SWNT and its modeling in CGMD simulation, Sendai, Japan, FNTG, September, 2018.
+- H. Koh, Y. Yoshimoto, S. Chiashi, J. Shiomi and S. Maruyama, Free thermal vibration of SWNT and its modeling in CGMD simulation, Ulsan, South Korea, Soft matter summer school from KIAS, June, 2019.
+#### Oral session 
+- H. Koh, Y. Yoshimoto, S. Chiashi, J. Shiomi and S. Maruyama, Free thermal vibration of SWNT and its modeling in CGMD simulation, Jeju, South Korea, ENGE, November, 2018.
+#### Related article 
+- On preparation for journal paper 
+
+
 
 ## Code work for Strain CGMD
   Nonlinear bending motion of single walled carbon nanotubs(SWCNT) calculated using molecular dynamic (MD) simulation using cantilevered SWCNT (Koh et al., PRB 2015) has depicted using coarse grained molecular dynamics (CGMD), which is modeled as a simple beads system.
