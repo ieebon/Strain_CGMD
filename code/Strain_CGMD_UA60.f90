@@ -1,4 +1,5 @@
-!Module info. from home-made code writtne by Prof. Shiomi and Prof. Maruyama
+! Module info. from home-made code writtne by Prof. Shiomi and Prof. Maruyama
+! Lastly modified at 2019, 9/15
 
 module consts
   integer,parameter :: maxc=10000, numax=500
