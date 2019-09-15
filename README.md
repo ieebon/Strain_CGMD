@@ -24,7 +24,7 @@
 
 
 
-### Presented in public via 
+ 
 #### Poster session
 - H. Koh, Y. Yoshimoto, S. Chiashi, J. Shiomi and S. Maruyama, Free thermal vibration of SWNT and its modeling in CGMD simulation, Sendai, Japan, FNTG, September, 2018.
 - H. Koh, Y. Yoshimoto, S. Chiashi, J. Shiomi and S. Maruyama, Free thermal vibration of SWNT and its modeling in CGMD simulation, Ulsan, South Korea, Soft matter summer school from KIAS, June, 2019.
