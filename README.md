@@ -4,7 +4,7 @@
 
 
 ## Code work for Strain CGMD
-  Nonlinear bending motion of single walled carbon nanotubs(SWCNT) calculated using molecular dynamic (MD) simulation using cantilevered SWCNT (Koh et al., PRB 2015) has been depicted using coarse grained molecular dynamics (CGMD), which is modeled as a simple beads system.
+  Nonlinear bending motion of single walled carbon nanotubs(SWCNT) calculated using molecular dynamic (MD) simulation of  cantilevered SWCNT (Koh et al., PRB 2015) has been depicted using coarse grained molecular dynamics (CGMD), which is modeled as a simple beads system.
   
   
 #### Simulation model
