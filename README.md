@@ -19,7 +19,7 @@
   
 Left : 5 times amplified from MD simulation, Right : 15 times amplified UA 60 in CGMD
 
-
+- Time step for this simulations is changed from 0.05 ps to 0.01 ps. 
 
 #### input data for this model is in https://drive.google.com/open?id=1a17F_jgNmaAdU6IK9HGAQ6gchxtW5JFl
 
